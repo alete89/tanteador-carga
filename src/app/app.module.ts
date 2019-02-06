@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { TanteadorComponent } from './components/tanteador/tanteador.component';
+import { NuevoEquipoComponent } from './components/nuevoEquipo/nuevoEquipo.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TanteadorComponent
+    TanteadorComponent,
+    NuevoEquipoComponent
   ],
   imports: [
     BrowserModule,

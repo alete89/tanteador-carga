@@ -1,0 +1,16 @@
+<div class="local">
+  <h3>Marcador Local</h3>
+  <button (click)="addLocal()"><img src="../../../assets/logos/plus.png" height="18px" width="auto" /></button>
+  <button (click)="resLocal()"><img src="../../../assets/logos/minus.png" height="18px" width="auto" /></button>
+</div>
+<div class="visitante">
+  <h3>Marcador Visitante</h3>
+  <button (click)="addVisitante()"><img src="../../../assets/logos/plus.png" height="18px" width="auto" /></button>
+  <button (click)="resVisitante()"><img src="../../../assets/logos/minus.png" height="18px" width="auto" /></button>
+</div>
+
+<div class="set">
+  <h2>Set actual:{{fecha.actual+1}}</h2>
+  <button (click)="finSet()" *ngIf="setFinit()">Finalizar Set</button>
+  <button (click)="revSet()" *ngIf="fecha.actual>0"><img src="../../../assets/logos/revert.png" height="18px" width="auto" />Volver a set anterior</button>
+</div>

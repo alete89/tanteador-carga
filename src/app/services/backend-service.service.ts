@@ -26,4 +26,16 @@ export class BackendServiceService implements Service {
     return Fecha.fromJson(resp.json())
   }
 
+  guardarEquipo(equipo: Equipo) {
+    const url = this.API_URL + "nuevoEquipo/"
+    const resp = this.http.post(url, equipo)
+    return resp.toPromise()//.catch()
+  }
+
+  async getEquipos() {
+    const url = this.API_URL + "getEquipos/"
+    const resp = await this.http.get(url).toPromise()
+    return resp.json().map(Equipo.fromJson)
+  }
+
 }

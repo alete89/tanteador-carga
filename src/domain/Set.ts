@@ -3,28 +3,20 @@ export class Set {
 
     puntosLocal: number = 0
     puntosVisitante: number = 0
+    puntosParaGanar: number
 
-    constructor(puntosLocal?: number, puntosVisitante?: number) {
+    constructor(puntosLocal?: number, puntosVisitante?: number, puntosParaGanar?: number) {
         this.puntosLocal = puntosLocal
         this.puntosVisitante = puntosVisitante
-
+        this.puntosParaGanar = puntosParaGanar
     }
 
-    ganoLocal(a: number) {
-        if (a < 4)
-            return (this.puntosLocal >= 25) && (this.puntosLocal >= (this.puntosVisitante + 2))
-        else {
-            return (this.puntosLocal >= 15) && (this.puntosLocal >= (this.puntosVisitante + 2))
-
-        }
+    ganoLocal() {
+        return (this.puntosLocal >= this.puntosParaGanar) && (this.puntosLocal >= (this.puntosVisitante + 2))
     }
 
-    ganoVisitante(a: number) {
-        if (a < 4)
-            return (this.puntosVisitante >= 25) && (this.puntosVisitante >= (this.puntosLocal + 2))
-        else {
-            return (this.puntosVisitante >= 15) && (this.puntosVisitante >= (this.puntosLocal + 2))
-        }
+    ganoVisitante() {
+        return (this.puntosVisitante >= this.puntosParaGanar) && (this.puntosVisitante >= (this.puntosLocal + 2))
     }
 
     static fromJson(setJson) {

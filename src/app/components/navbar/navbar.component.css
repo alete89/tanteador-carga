@@ -1,0 +1,39 @@
+.navbar {
+    background-color: #1d428a;
+    max-width: 120rem;
+}
+
+.pelota{
+    font-size: 1.6rem;
+    margin-right: 0.7rem;
+}
+
+.nav-link {
+    color: white;
+}
+
+.titulo {
+    color: white;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+}
+
+.material-icons {
+    display: inline-flex;
+    vertical-align: text-top;
+    padding-bottom: 0.3em;
+}
+
+.waves-light {
+    background-color: #1b2838;
+    color: white;
+
+    /* background-color: #2A363B; */
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.waves-light:hover {
+    background-color: #001fff4d !important;
+}

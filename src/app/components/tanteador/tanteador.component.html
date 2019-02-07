@@ -1,4 +1,4 @@
-<div class="local">
+<!-- <div class="local">
   <h3>Marcador Local</h3>
   <button (click)="addLocal()"><img src="../../../assets/logos/plus.png" height="18px" width="auto" /></button>
   <button (click)="resLocal()"><img src="../../../assets/logos/minus.png" height="18px" width="auto" /></button>
@@ -13,4 +13,63 @@
   <h2>Set actual:{{fecha.actual+1}}</h2>
   <button (click)="finSet()" *ngIf="setFinit()">Finalizar Set</button>
   <button (click)="revSet()" *ngIf="fecha.actual>0"><img src="../../../assets/logos/revert.png" height="18px" width="auto" />Volver a set anterior</button>
-</div>
+</div> -->
+
+<div>
+  <mdb-card *ngIf="isReady() && fecha.iniciado">
+    <div>{{fecha.fechaHoraInicio | date:"E dd/MM/yy HH:mm"}}</div>
+    <div *ngIf="fecha.partidoFinalizado()" class="finalizado">Finalizado</div>
+    <div class="row">
+      <div class="col-md-4 local">
+        <h2>{{fecha.setsGanadosLocal()}}</h2>
+        <img src={{fecha.local.urlEscudo}} alt={{fecha.local.nombre}}>
+        <div>{{fecha.local.nombre}}</div>
+      </div>
+      <div class="marcador">
+        <span [ngClass]='{red : setSeleccionado.ganoLocal()}'>
+          <button [disabled]="noPuedeRestarLocal()" (click)="resLocal()">
+            <mdb-icon far icon="minus-square"></mdb-icon>
+          </button>
+          {{setSeleccionado.puntosLocal}} <button [disabled]="noPuedeSumarLocal()" (click)="addLocal()">
+            <mdb-icon far icon="plus-square"></mdb-icon>
+          </button>
+        </span>
+        -
+        <span [ngClass]='{red : setSeleccionado.ganoVisitante()}'>
+          <button [disabled]="noPuedeRestarVisitante()" (click)="resVisitante()">
+            <mdb-icon far icon="minus-square"></mdb-icon>
+          </button>
+          {{setSeleccionado.puntosVisitante}}
+          <button [disabled]="noPuedeSumarVisitante()" (click)="addVisitante()">
+            <mdb-icon far icon="plus-square"></mdb-icon>
+          </button>
+        </span>
+      </div>
+
+      <div class="col-md-4 visitante">
+        <h2>{{fecha.setsGanadosVisitante()}}</h2>
+        <img src={{fecha.visitante.urlEscudo}} alt={{fecha.visitante.nombre}}>
+        <div>{{fecha.visitante.nombre}}</div>
+      </div>
+    </div>
+    <div>{{fecha.lugar}}</div>
+
+
+  </mdb-card>
+
+  <!-- <mdb-card class="selector" *ngIf="fecha"> -->
+  <mat-form-field class="selector" *ngIf="fecha">
+
+    <mat-select disableOptionCentering [(ngModel)]="setSeleccionado">
+      <mat-option *ngFor="let set of fecha.sets" [value]="set">
+        Set {{fecha.sets.indexOf(set) + 1}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- </mdb-card> -->
+
+
+  <div>
+
+
+  </div>

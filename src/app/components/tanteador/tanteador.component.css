@@ -1,0 +1,63 @@
+.card {
+    color: black;
+    margin: 2rem;
+    max-width: 41rem;
+    text-align: center;
+}
+
+.puntajes {
+    list-style-type: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0.2rem;
+}
+
+.mas {
+    border-style: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+.finalizado {
+    color: gray;
+}
+
+.centrado {
+    vertical-align: middle;
+}
+
+.marcador {
+    background-color: white;
+    border-style: none;
+    font-size: 2.5rem;
+    padding-top: 2rem;
+}
+
+.local {
+    max-width: 10rem;
+}
+
+.visitante {
+    max-width: 10rem;
+}
+
+button {
+    border-style: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.selector {
+    margin-left: 1rem;
+    border-style: solid;
+    padding-left: 1rem;
+    background-color: darkblue;
+    text-align: center;
+    font-size: 1.1rem;
+}
+

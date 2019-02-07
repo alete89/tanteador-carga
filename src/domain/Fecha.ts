@@ -7,20 +7,19 @@ export class Fecha {
     fechaHoraInicio: Date
     lugar: string
     iniciado: boolean = false
-    sets: Array<Set> = [new Set(), new Set(), new Set(), new Set(), new Set()]
-    actual: number=0
+    sets: Array<Set> = [new Set(0,0,25), new Set(0,0,25), new Set(0,0,25), new Set(0,0,25), new Set(0,0,15)]
 
     constructor(init?: Partial<Fecha>) {
         Object.assign(this, init)
     }
 
     setsGanadosLocal() {
-        return this.sets.filter(set => set.ganoLocal(this.actual)).length
+        return this.sets.filter(set => set.ganoLocal()).length
 
     }
 
     setsGanadosVisitante() {
-        return this.sets.filter(set => set.ganoVisitante(this.actual)).length
+        return this.sets.filter(set => set.ganoVisitante()).length
 
     }
 

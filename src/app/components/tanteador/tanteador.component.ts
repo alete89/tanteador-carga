@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Fecha } from 'src/domain/Fecha';
 import { MockService } from 'src/app/services/mock.service';
 import { Equipo } from 'src/domain/Equipo';
+import { Set } from 'src/domain/Set';
 
 @Component({
   selector: 'app-tanteador',
@@ -10,8 +11,10 @@ import { Equipo } from 'src/domain/Equipo';
 })
 export class TanteadorComponent implements OnInit {
   fecha: Fecha
+  setSeleccionado: Set
 
-  constructor(private mockService: MockService) { }
+  constructor(private mockService: MockService) {
+  }
 
   ngOnInit() {
     this.unaFecha();
@@ -19,6 +22,7 @@ export class TanteadorComponent implements OnInit {
 
   async unaFecha() {
     this.fecha = await this.mockService.unaFecha()
+    this.setSeleccionado = this.fecha.sets[0]
   }
 
   isReady() {
@@ -26,35 +30,41 @@ export class TanteadorComponent implements OnInit {
   }
 
   addLocal(): void {
-    this.fecha.sets[this.fecha.actual].puntosLocal++
+    this.setSeleccionado.puntosLocal++
     console.log(this.fecha)
   }
 
   addVisitante(): void {
-    this.fecha.sets[this.fecha.actual].puntosVisitante++
+    this.setSeleccionado.puntosVisitante++
     console.log(this.fecha)
   }
 
   resLocal(): void {
-    if (this.fecha.sets[this.fecha.actual].puntosLocal > 0)
-      this.fecha.sets[this.fecha.actual].puntosLocal--
+    this.setSeleccionado.puntosLocal--
   }
 
   resVisitante(): void {
-    if (this.fecha.sets[this.fecha.actual].puntosVisitante > 0)
-      this.fecha.sets[this.fecha.actual].puntosVisitante--
+    this.setSeleccionado.puntosVisitante--
   }
 
-  finSet(): void {
-    if (this.fecha.actual < 4)
-      this.fecha.actual++
+  noPuedeSumarLocal() {
+    return this.setSeleccionado.ganoLocal()
   }
 
-  revSet(): void {
-    if (this.fecha.actual >= 0)
-      this.fecha.actual--
+  noPuedeSumarVisitante() {
+    return this.setSeleccionado.ganoVisitante()
+
   }
+
+  noPuedeRestarLocal() {
+    return this.setSeleccionado.puntosLocal == 0
+  }
+
+  noPuedeRestarVisitante() {
+    return this.setSeleccionado.puntosVisitante == 0
+  }
+
   setFinit() {
-    return this.fecha.sets[this.fecha.actual].ganoLocal(this.fecha.actual) || this.fecha.sets[this.fecha.actual].ganoVisitante(this.fecha.actual)
+    return this.setSeleccionado.ganoLocal() || this.setSeleccionado.ganoVisitante()
   }
 }

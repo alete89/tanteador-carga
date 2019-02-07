@@ -14,7 +14,11 @@ export class MockService implements Service {
   local: Equipo = new Equipo({ "nombre": "River", "urlEscudo": "../../../assets/logos/0002.png" })
   visitante: Equipo = new Equipo({ "nombre": "Boca", "urlEscudo": "../../../assets/logos/0001.png" })
 
-  constructor() { }
+  equipos: Equipo[]
+
+  constructor() {
+    this.equipos = [this.local, this.visitante]
+  }
 
   fecha = new Fecha({
     "local": this.local,
@@ -32,6 +36,14 @@ export class MockService implements Service {
   async unaFecha() {
     return this.fecha
 
+  }
+
+  async guardarEquipo(equipo: Equipo) {
+    this.equipos.push(equipo)
+  }
+
+  getEquipos() {
+    return this.equipos
   }
 
 }

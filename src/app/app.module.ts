@@ -13,6 +13,7 @@ import { IniciarPartidoComponent } from './components/iniciar-partido/iniciar-pa
 import { MatSelectModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { NuevoEquipoComponent } from './components/nuevoEquipo/nuevoEquipo.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     CrearEquipoComponent,
     CrearPartidoComponent,
-    IniciarPartidoComponent
+    IniciarPartidoComponent,
+    NuevoEquipoComponent
   ],
   imports: [
     BrowserModule,

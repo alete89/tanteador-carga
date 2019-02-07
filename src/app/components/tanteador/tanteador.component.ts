@@ -31,12 +31,10 @@ export class TanteadorComponent implements OnInit {
 
   addLocal(): void {
     this.setSeleccionado.puntosLocal++
-    console.log(this.fecha)
   }
 
   addVisitante(): void {
     this.setSeleccionado.puntosVisitante++
-    console.log(this.fecha)
   }
 
   resLocal(): void {

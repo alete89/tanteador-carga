@@ -19,6 +19,10 @@ export class Set {
         return (this.puntosVisitante >= this.puntosParaGanar) && (this.puntosVisitante >= (this.puntosLocal + 2))
     }
 
+    finalizado(){
+        return this.ganoLocal() || this.ganoVisitante()
+    }
+
     static fromJson(setJson) {
         var nuevoSet = Object.assign(new Set(), setJson)
         return nuevoSet

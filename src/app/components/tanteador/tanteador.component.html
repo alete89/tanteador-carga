@@ -18,7 +18,7 @@
 <div>
   <mdb-card *ngIf="isReady() && fecha.iniciado">
     <div>{{fecha.fechaHoraInicio | date:"E dd/MM/yy HH:mm"}}</div>
-    <div *ngIf="fecha.partidoFinalizado()" class="finalizado">Finalizado</div>
+    <div *ngIf="setSeleccionado.finalizado()" class="finalizado">Finalizado</div>
     <div class="row">
       <div class="col-md-4 local">
         <h2>{{fecha.setsGanadosLocal()}}</h2>

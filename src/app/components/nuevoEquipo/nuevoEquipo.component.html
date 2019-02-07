@@ -4,14 +4,14 @@
     <form>
       <div class="form-group">
         <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]='equipo.nombre' id="nombre" name="nombre"
-          required>
+        <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]='equipo.nombre' id="nombre"
+          name="nombre" required>
       </div>
 
       <div class="form-group">
         <label for="abreviatura">Abreviatura</label>
-        <input type="text" class="form-control" placeholder="Abreviatura" [(ngModel)]='equipo.abreviatura' name="abreviatura"
-          id="abreviatura">
+        <input type="text" class="form-control" placeholder="Abreviatura" [(ngModel)]='equipo.abreviatura'
+          name="abreviatura" id="abreviatura">
       </div>
 
       <div class="form-group">
@@ -24,9 +24,9 @@
     </form>
   </div>
   <p>debug:</p>
-  <ul>
-    <li *ngFor="let equipo of equipos()">
-      {{ equipo.nombre }}
+  <ul *ngIf="isReady()">
+    <li *ngFor="let eq of getEquipos()">
+      {{ eq.nombre }}
     </li>
   </ul>
 </div>

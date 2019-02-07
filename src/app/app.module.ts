@@ -7,7 +7,6 @@ import { TanteadorComponent } from './components/tanteador/tanteador.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CrearEquipoComponent } from './components/crear-equipo/crear-equipo.component';
 import { CrearPartidoComponent } from './components/crear-partido/crear-partido.component';
 import { IniciarPartidoComponent } from './components/iniciar-partido/iniciar-partido.component';
 import { MatSelectModule } from '@angular/material';
@@ -21,7 +20,6 @@ import { NuevoEquipoComponent } from './components/nuevoEquipo/nuevoEquipo.compo
     AppComponent,
     TanteadorComponent,
     NavbarComponent,
-    CrearEquipoComponent,
     CrearPartidoComponent,
     IniciarPartidoComponent,
     NuevoEquipoComponent

@@ -1,14 +1,15 @@
 
 export class Set {
 
-    puntosLocal: number = 0
-    puntosVisitante: number = 0
+    puntosLocal: number
+    puntosVisitante: number
     puntosParaGanar: number
 
-    constructor(puntosLocal?: number, puntosVisitante?: number, puntosParaGanar?: number) {
-        this.puntosLocal = puntosLocal
-        this.puntosVisitante = puntosVisitante
-        this.puntosParaGanar = puntosParaGanar
+    constructor(init?: Partial<Set>) {
+        this.puntosLocal = 0
+        this.puntosVisitante = 0
+        this.puntosParaGanar = 25
+        Object.assign(this, init)
     }
 
     ganoLocal() {
@@ -19,7 +20,7 @@ export class Set {
         return (this.puntosVisitante >= this.puntosParaGanar) && (this.puntosVisitante >= (this.puntosLocal + 2))
     }
 
-    finalizado(){
+    finalizado() {
         return this.ganoLocal() || this.ganoVisitante()
     }
 

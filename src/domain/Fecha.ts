@@ -7,7 +7,7 @@ export class Fecha {
     fechaHoraInicio: Date
     lugar: string
     iniciado: boolean = false
-    sets: Array<Set> = [new Set(0,0,25), new Set(0,0,25), new Set(0,0,25), new Set(0,0,25), new Set(0,0,15)]
+    sets: Array<Set> = [new Set(), new Set(), new Set(), new Set(), new Set({ "puntosParaGanar": 15 })]
 
     constructor(init?: Partial<Fecha>) {
         Object.assign(this, init)

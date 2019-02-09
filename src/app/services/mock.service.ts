@@ -26,7 +26,12 @@ export class MockService implements Service {
     "fechaHoraInicio": new Date(2018, 3, 20, 23, 30),
     "lugar": "Estadio Único",
     "iniciado": true,
-    "sets": [new Set(19, 25, 25), new Set(25, 18, 25), new Set(18, 25, 25), new Set(25, 27, 25), new Set(15, 13, 15)]
+    "sets": [new Set({ "puntosLocal": 19, "puntosVisitante": 25 }),
+             new Set({ "puntosLocal": 25, "puntosVisitante": 18 }),
+             new Set({ "puntosLocal": 18, "puntosVisitante": 25 }),
+             new Set({ "puntosLocal": 27, "puntosVisitante": 25 }),
+             new Set({ "puntosLocal": 15, "puntosVisitante": 13, "puntosParaGanar": 15 })
+            ]
   })
 
   unEquipo() {

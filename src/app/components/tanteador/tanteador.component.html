@@ -19,6 +19,7 @@
   <mdb-card *ngIf="isReady() && fecha.iniciado">
     <div>{{fecha.fechaHoraInicio | date:"E dd/MM/yy HH:mm"}}</div>
     <div *ngIf="setSeleccionado.finalizado()" class="finalizado">Finalizado</div>
+    <div *ngIf="!setSeleccionado.finalizado()" class="finalizado">En Curso</div>
     <div class="row">
       <div class="col-md-4 local">
         <h2>{{fecha.setsGanadosLocal()}}</h2>
@@ -30,7 +31,7 @@
           <button [disabled]="noPuedeRestarLocal()" (click)="resLocal()">
             <mdb-icon far icon="minus-square"></mdb-icon>
           </button>
-          {{setSeleccionado.puntosLocal}} <button [disabled]="noPuedeSumarLocal()" (click)="addLocal()">
+          <div class="puntos">{{setSeleccionado.puntosLocal}}</div> <button [disabled]="noPuedeSumarLocal()" (click)="addLocal()">
             <mdb-icon far icon="plus-square"></mdb-icon>
           </button>
         </span>
@@ -39,7 +40,7 @@
           <button [disabled]="noPuedeRestarVisitante()" (click)="resVisitante()">
             <mdb-icon far icon="minus-square"></mdb-icon>
           </button>
-          {{setSeleccionado.puntosVisitante}}
+          <div class="puntos">{{setSeleccionado.puntosVisitante}}</div>
           <button [disabled]="noPuedeSumarVisitante()" (click)="addVisitante()">
             <mdb-icon far icon="plus-square"></mdb-icon>
           </button>

@@ -18,8 +18,8 @@
 <div>
   <mdb-card *ngIf="isReady() && fecha.iniciado">
     <div>{{fecha.fechaHoraInicio | date:"E dd/MM/yy HH:mm"}}</div>
-    <div *ngIf="setSeleccionado.finalizado()" class="finalizado">Finalizado</div>
-    <div *ngIf="!setSeleccionado.finalizado()" class="finalizado">En Curso</div>
+    <div *ngIf="fecha.partidoFinalizado()" class="finalizado">Finalizado</div>
+    <div *ngIf="!fecha.partidoFinalizado()" class="finalizado">En Curso</div>
     <div class="row">
       <div class="col-md-4 local">
         <h2>{{fecha.setsGanadosLocal()}}</h2>
@@ -53,12 +53,23 @@
         <div>{{fecha.visitante.nombre}}</div>
       </div>
     </div>
+    <div>
+      <span>
+        <button [disabled]="noPuedeRestarSet()" (click)="restarSet()">
+          <mdb-icon far icon="minus-square"></mdb-icon>
+        </button>
+        <div class="puntos">Set {{fecha.sets.indexOf(setSeleccionado) + 1}}</div>
+        <button [disabled]="fecha.partidoFinalizado() || !setFinit()" (click)="sumarSet()">
+          <mdb-icon far icon="plus-square"></mdb-icon>
+        </button>
+      </span>
+    </div>
     <div>{{fecha.lugar}}</div>
 
 
   </mdb-card>
 
-  <!-- <mdb-card class="selector" *ngIf="fecha"> -->
+  <!-- <mdb-card class="selector" *ngIf="fecha">
   <mat-form-field class="selector" *ngIf="fecha">
 
     <mat-select disableOptionCentering [(ngModel)]="setSeleccionado">
@@ -68,9 +79,3 @@
     </mat-select>
   </mat-form-field>
   <!-- </mdb-card> -->
-
-
-  <div>
-
-
-  </div>

@@ -62,7 +62,23 @@ export class TanteadorComponent implements OnInit {
     return this.setSeleccionado.puntosVisitante == 0
   }
 
+  noPuedeRestarSet() {
+    return this.fecha.sets.indexOf(this.setSeleccionado) == 0
+  }
+
+  sumarSet(){
+    this.setSeleccionado = this.fecha.sets[this.fecha.sets.indexOf(this.setSeleccionado) +1]
+  }
+
+  restarSet(){
+    this.setSeleccionado = this.fecha.sets[this.fecha.sets.indexOf(this.setSeleccionado) -1]
+  }
+
   setFinit() {
     return this.setSeleccionado.ganoLocal() || this.setSeleccionado.ganoVisitante()
+  }
+
+  actual() {
+    this.fecha.sets.indexOf(this.setSeleccionado)
   }
 }

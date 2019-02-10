@@ -3,13 +3,14 @@ import { Http } from '@angular/http';
 import { Equipo } from 'src/domain/Equipo';
 import { Fecha } from 'src/domain/Fecha';
 import { Service } from './service';
+import { environment } from 'src/environments/environment.prod';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BackendServiceService implements Service {
-  API_URL = "http://127.0.0.1:8080/"
+  API_URL = "http://" + environment.server + ":8080/"
 
   constructor(private http: Http) {
   }

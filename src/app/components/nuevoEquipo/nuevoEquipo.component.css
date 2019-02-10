@@ -1,0 +1,23 @@
+.container {
+    margin-top: 2rem;
+    max-width: 24rem;
+}
+
+.form-group {
+    font-weight: bold;
+}
+
+.titulo {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.guardar {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card {
+    background-color: #001f3f;
+}

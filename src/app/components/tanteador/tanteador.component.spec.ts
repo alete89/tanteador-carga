@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TanteadorComponent } from './tanteador.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 describe('TanteadorComponent', () => {
   let component: TanteadorComponent;
@@ -8,9 +9,10 @@ describe('TanteadorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TanteadorComponent ]
+      imports: [MDBBootstrapModule.forRoot()],
+      declarations: [TanteadorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

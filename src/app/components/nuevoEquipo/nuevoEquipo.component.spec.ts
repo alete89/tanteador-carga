@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { NuevoEquipoComponent } from './nuevoEquipo.component';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 describe('NuevoEquipoComponent', () => {
   let component: NuevoEquipoComponent;
@@ -11,9 +13,10 @@ describe('NuevoEquipoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NuevoEquipoComponent ]
+      imports: [FormsModule, HttpModule],
+      declarations: [NuevoEquipoComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,5 +1,7 @@
 export class Equipo {
+    id: number
     nombre: string
+    abreviatura: string
     urlEscudo: string
 
 

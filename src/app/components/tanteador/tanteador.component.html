@@ -18,7 +18,6 @@
 <div>
   <mdb-card *ngIf="isReady() && fecha.iniciado">
     <div>{{fecha.fechaHoraInicio | date:"E dd/MM/yy HH:mm"}}</div>
-    <div>Sets finalizados: {{ultimoSet()}}</div>
     <div *ngIf="fecha.partidoFinalizado()" class="finalizado">Finalizado</div>
     <div *ngIf="!fecha.partidoFinalizado()" class="finalizado">En Curso</div>
     <div class="row">

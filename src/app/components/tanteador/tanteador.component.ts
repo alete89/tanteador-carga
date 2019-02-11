@@ -78,7 +78,11 @@ export class TanteadorComponent implements OnInit {
     return this.setSeleccionado.ganoLocal() || this.setSeleccionado.ganoVisitante()
   }
 
-  actual() {
-    this.fecha.sets.indexOf(this.setSeleccionado)
+  noPuedeSumarSet() {
+    return this.fecha.partidoFinalizado() && this.fecha.sets.indexOf(this.setSeleccionado)>=this.ultimoSet()
+  }
+
+  ultimoSet(){
+    return this.fecha.setsGanadosLocal()+this.fecha.setsGanadosVisitante() -1
   }
 }

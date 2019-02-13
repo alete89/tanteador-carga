@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MockService } from 'src/app/services/mock.service';
 import { Equipo } from 'src/domain/Equipo';
 import { BackendServiceService } from 'src/app/services/backend-service.service';
+import { Usuario } from 'src/domain/Usuario';
 
 @Component({
   selector: 'app-nuevoEquipo',
@@ -12,17 +13,25 @@ export class NuevoEquipoComponent implements OnInit {
 
   equipo: Equipo
   equipos: Equipo[]
+  usuario: Usuario
+  plain: string
 
   constructor(private mockService: MockService, private service: BackendServiceService) {
     this.equipo = new Equipo()
+    this.usuario = new Usuario()
     this.updateEquipos()
   }
 
   ngOnInit() {
   }
 
-  guardar() {
-    this.service.guardarEquipo(this.equipo)
+  async guardar() {
+    var numero = +(await this.service.guardarEquipo(this.equipo)).text()
+    this.equipo.id = numero
+    this.usuario.setPasswordHash(this.plain)
+    this.usuario.equipo = this.equipo
+    console.log(this.usuario)
+    this.service.guardarUsuario(this.usuario)
   }
 
   async updateEquipos() {

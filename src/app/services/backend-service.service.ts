@@ -4,6 +4,7 @@ import { Equipo } from 'src/domain/Equipo';
 import { Fecha } from 'src/domain/Fecha';
 import { Service } from './service';
 import { environment } from 'src/environments/environment.prod';
+import { Usuario } from 'src/domain/Usuario';
 
 
 @Injectable({
@@ -27,9 +28,15 @@ export class BackendServiceService implements Service {
     return Fecha.fromJson(resp.json())
   }
 
-  guardarEquipo(equipo: Equipo) {
+  async guardarEquipo(equipo: Equipo) {
     const url = this.API_URL + "nuevoEquipo/"
     const resp = this.http.post(url, equipo)
+    return resp.toPromise()
+  }
+
+  async guardarUsuario(usuario: Usuario) {
+    const url = this.API_URL + "nuevoUsuario/"
+    const resp = this.http.post(url, usuario)
     return resp.toPromise()//.catch()
   }
 

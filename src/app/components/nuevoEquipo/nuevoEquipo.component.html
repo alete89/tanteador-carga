@@ -19,6 +19,18 @@
         <input type="file" class="form-control" id="escudo">
       </div>
 
+      <div class="form-group">
+        <label for="user">Usuario Asignado</label>
+        <input type="text" class="form-control" placeholder="Usuario" autocomplete="username"
+          [(ngModel)]='usuario.username' id="user" name="user" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="plain"
+          autocomplete="new-password" id="password" name="password" required>
+      </div>
+
       <button type="submit" (click)="guardar()" class="btn btn-primary guardar">Guardar</button>
 
     </form>

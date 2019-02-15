@@ -16,7 +16,7 @@ export class NuevoEquipoComponent implements OnInit {
   usuario: Usuario
   plain: string
 
-  constructor(private mockService: MockService, private service: BackendServiceService) {
+  constructor(private service: MockService) { //BackendServiceService //MockService 
     this.equipo = new Equipo()
     this.usuario = new Usuario()
     this.updateEquipos()
@@ -26,12 +26,19 @@ export class NuevoEquipoComponent implements OnInit {
   }
 
   async guardar() {
-    var numero = +(await this.service.guardarEquipo(this.equipo)).text()
-    this.equipo.id = numero
-    this.usuario.setPasswordHash(this.plain)
-    this.usuario.equipo = this.equipo
-    console.log(this.usuario)
-    this.service.guardarUsuario(this.usuario)
+    try {
+      //validar acá
+      var numero = +(await this.service.guardarEquipo(this.equipo)).text()
+      this.equipo.id = numero
+      this.usuario.setPasswordHash(this.plain)
+      this.usuario.equipo = this.equipo
+      this.service.guardarUsuario(this.usuario)
+    } catch (error) {
+      console.log(error)
+    } finally {
+      // Las llamadas a los servicios ponerlas acá
+    }
+    console.log(this.formularioCompleto())
     this.updateEquipos()
   }
 
@@ -45,6 +52,13 @@ export class NuevoEquipoComponent implements OnInit {
 
   isReady() {
     return this.equipos != undefined
+  }
+
+  formularioCompleto() {
+    // return this.equipo.nombre != undefined &&
+    //   this.usuario.username != undefined &&
+    //   this.usuario.passwordHash != undefined
+    return true
   }
 
 }

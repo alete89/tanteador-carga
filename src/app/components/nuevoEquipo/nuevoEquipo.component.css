@@ -8,9 +8,12 @@
 }
 
 .titulo {
-    text-align: center;
+    text-align: left;
     font-weight: bold;
-    margin-bottom: 2rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    padding: 0.3rem;
 }
 
 .guardar {
@@ -19,5 +22,33 @@
 }
 
 .card {
-    background-color: #001f3f;
+    color: black;
+    background-color: white;
+
+    /* background-color: #d9e9ff; */
+}
+
+.field {
+    width: 90%;
+}
+
+.margen {
+    margin-bottom: 1rem;
+}
+
+.escudo {
+    margin-bottom: 1.4rem;
+}
+
+input {
+    border-color: black;
+}
+
+.mat-form-field .placeholder {
+    color: black;
+}
+
+.mat-focused .placeholder {
+    color: darkblue;
+    font-weight: bold;
 }

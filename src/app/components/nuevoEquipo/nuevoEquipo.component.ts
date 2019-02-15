@@ -3,6 +3,7 @@ import { MockService } from 'src/app/services/mock.service';
 import { Equipo } from 'src/domain/Equipo';
 import { BackendServiceService } from 'src/app/services/backend-service.service';
 import { Usuario } from 'src/domain/Usuario';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-nuevoEquipo',
@@ -16,6 +17,12 @@ export class NuevoEquipoComponent implements OnInit {
   usuario: Usuario
   plain: string
 
+  nombreFormControl = this.crearFormControl()
+
+  usuarioAsignadoFormControl = this.crearFormControl()
+
+  passwordFormControl = this.crearFormControl()
+
   constructor(private service: MockService) { //BackendServiceService //MockService 
     this.equipo = new Equipo()
     this.usuario = new Usuario()
@@ -23,6 +30,20 @@ export class NuevoEquipoComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  crearFormControl() {
+    return new FormControl('', [
+      Validators.required
+    ]);
+  }
+
+  hayErrores() {
+    return this.noLlenoCampo(this.nombreFormControl) || this.noLlenoCampo(this.usuarioAsignadoFormControl) || this.noLlenoCampo(this.passwordFormControl)
+  }
+
+  noLlenoCampo(formControl: FormControl) {
+    return formControl.hasError('required')
   }
 
   async guardar() {

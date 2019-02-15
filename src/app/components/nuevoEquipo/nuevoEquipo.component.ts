@@ -32,6 +32,7 @@ export class NuevoEquipoComponent implements OnInit {
     this.usuario.equipo = this.equipo
     console.log(this.usuario)
     this.service.guardarUsuario(this.usuario)
+    this.updateEquipos()
   }
 
   async updateEquipos() {
@@ -39,7 +40,6 @@ export class NuevoEquipoComponent implements OnInit {
   }
 
   getEquipos() {
-    this.ngOnInit()
     return this.equipos
   }
 

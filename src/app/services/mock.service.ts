@@ -4,8 +4,6 @@ import { Equipo } from 'src/domain/Equipo';
 import { Set } from 'src/domain/Set';
 import { Service } from './service';
 import { Usuario } from 'src/domain/Usuario';
-import { Body } from '@angular/http/src/body';
-import { ResponseOptions } from '@angular/http';
 
 
 

@@ -1,4 +1,4 @@
-# Tanteador
+# Tanteador [![Build Status](https://travis-ci.com/alete89/tanteador-carga.svg?token=CbGZBLoAbE64APpkE9Ey&branch=master)](https://travis-ci.com/alete89/tanteador-carga)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
 
